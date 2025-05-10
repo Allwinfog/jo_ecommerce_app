@@ -21,7 +21,8 @@
                                      Whether you're hitting the beach, planning a getaway, or refreshing your summer wardrobe, we’ve got you covered with hot deals on fashion, accessories, skincare, home essentials, and more.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                     <br><br>
+                                    <a href="{{route('shop')}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>
@@ -44,7 +45,7 @@
                                  <p>
                                      Up to 60% OFF everything you need for your best summer yet!
 
-                                     Get ready to shine with cool deals on hot items – from stylish summer wear and poolside essentials to outdoor gadgets and vacation-ready picks.<br><br>
+
 
                                      ✔️ Daily new deals<br>
                                      ✔️ Limited-time discounts<br>
@@ -54,7 +55,7 @@
 
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{route('shop')}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>
@@ -87,7 +88,7 @@
                                      Ready, Set, Summer!
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{route('shop')}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>
