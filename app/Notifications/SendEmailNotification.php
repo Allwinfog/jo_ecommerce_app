@@ -21,7 +21,7 @@ class SendEmailNotification extends Notification
      */
     public function __construct($details)
     {
-        $this->details=$details;
+        $this->details = $details;
     }
 
     /**
@@ -40,11 +40,11 @@ class SendEmailNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->greeting($this->details['greeting'])
-                    ->line($this->details['firstline'])
-                    ->line($this->details['body'])
-                    ->action($this->details['button'], $this->details['url'])
-                    ->line($this->details['lastline']);
+            ->greeting($this->details['greeting'])
+            ->line($this->details['firstline'])
+            ->line($this->details['body'])
+            ->action($this->details['button'], $this->details['url'])
+            ->line($this->details['lastline']);
     }
 
     /**

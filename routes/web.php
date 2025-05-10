@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\HomeController;
-
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 
-use App\Http\Controllers\StripePaymentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,34 +69,40 @@ Route::get('/search', [AdminController::class,'searchdata']);
 
 
 
+/* Shop routes */
+
+/* Products */
+
+Route::get('/shop', [ProductController::class,'product'])->name('shop');
+
+Route::get('/product/details/{id}', [ProductController::class,'product_details'])->name('product_details');
+
+Route::get('/product/search', [ProductController::class,'search_product'])->name('product_search');
 
 
-Route::get('/product_details/{id}', [HomeController::class,'product_details']);
+/* Cart */
+Route::post('/add_cart/{id}', [CartController::class,'add_cart']);
 
-Route::post('/add_cart/{id}', [HomeController::class,'add_cart']);
+Route::get('/show_cart', [CartController::class,'show_cart']);
 
-Route::get('/show_cart', [HomeController::class,'show_cart']);
+Route::get('/remove_cart/{id}', [CartController::class,'remove_cart']);
 
-Route::get('/remove_cart/{id}', [HomeController::class,'remove_cart']);
+/* Order */
 
-Route::get('/cash_order', [HomeController::class,'cash_order']);
+Route::get('/cash_order', [OrderController::class,'cash_order']);
 
-Route::get('/stripe/{totalprice}', [HomeController::class,'stripe']);
+Route::get('/show_order', [OrderController::class,'show_order']);
 
+Route::get('/Cancel_Order/{id}', [OrderController::class,'Cancel_Order']);
 
+/* Payment */
 
-Route::post('stripe/{totalprice}', [HomeController::class,'stripePost'])->name('stripe.post');
+Route::get('/stripe/{totalprice}', [PaymentController::class,'stripe']);
 
-Route::get('/show_order', [HomeController::class,'show_order']);
+Route::post('stripe/{totalprice}', [PaymentController::class,'stripePost'])->name('stripe.post');
 
-Route::get('/Cancel_Order/{id}', [HomeController::class,'Cancel_Order']);
+/* Comments */
 
-Route::post('/add_comment', [HomeController::class,'add_comment']);
+Route::post('/add_comment', [CommentsController::class,'add_comment']);
 
-Route::post('/add_reply', [HomeController::class,'add_reply']);
-
-Route::get('/product_search', [HomeController::class,'product_search']);
-
-Route::get('/products', [HomeController::class,'product']);
-
-Route::get('/search_product', [HomeController::class,'search_product']);
+Route::post('/add_reply', [CommentsController::class,'add_reply']);
