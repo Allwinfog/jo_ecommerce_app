@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-
-
 use App\Models\Cart;
-
 use App\Models\Order;
+use App\Models\products;
+use Illuminate\Support\Facades\Auth;
 
 
 class OrderController extends Controller
@@ -37,6 +35,7 @@ class OrderController extends Controller
 
         $data = cart::where('user_id', '=', $userid)->get();
 
+
         foreach ($data as $data) {
             $order = new order;
 
@@ -60,6 +59,10 @@ class OrderController extends Controller
             $order->image = $data->Image;
 
             $order->product_id = $data->Product_id;
+
+            $product = Products::find($order->product_id);
+            $product->quantity = $product->quantity - $order->quantity;
+            $product->save();
 
 
             $order->payment_status = 'cash on delivery';

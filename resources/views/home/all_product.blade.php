@@ -2,25 +2,27 @@
 <html>
 <head>
     <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <link rel="shortcut icon" href="images/favicon.png" type="">
-    <title>Famms - Fashion HTML Template</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css"/>
     <!-- font awesome style -->
-    <link href="/home/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/home/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- Custom styles for this template -->
-    <link href="/home/css/style.css" rel="stylesheet" />
+    <link href="/home/css/style.css" rel="stylesheet"/>
     <!-- responsive style -->
-    <link href="/home/css/responsive.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="/home/css/responsive.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <div class="hero_area">
@@ -41,16 +43,13 @@
     <!-- end comments section -->
 
 
-
-
-
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
+        document.addEventListener("DOMContentLoaded", function (event) {
             var scrollpos = localStorage.getItem('scrollpos');
             if (scrollpos) window.scrollTo(0, scrollpos);
         });
 
-        window.onbeforeunload = function(e) {
+        window.onbeforeunload = function (e) {
             localStorage.setItem('scrollpos', window.scrollY);
         };
     </script>

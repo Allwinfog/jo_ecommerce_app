@@ -5,7 +5,8 @@
 
         @csrf
 
-        <textarea name="comment" placeholder="Comment something here" style="color:black; height:150px; width:600px;"> </textarea>
+        <textarea name="comment" placeholder="Comment something here"
+                  style="color:black; height:150px; width:600px;"> </textarea>
 
         <br><br>
         <input type="submit" class="btn btn-primary" value="Comment">
@@ -37,7 +38,8 @@
                         <b>{{ $reply->name }}</b>
                         <p>{{ $rep->reply }}</p>
 
-                        <a style="color:blue" href="javascript::void(0);" onclick="reply(this)" data-Commentid="{{ $comment->id }}">Reply</a>
+                        <a style="color:blue" href="javascript::void(0);" onclick="reply(this)"
+                           data-Commentid="{{ $comment->id }}">Reply</a>
 
                     </div>
 

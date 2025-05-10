@@ -22,7 +22,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 
 Route::middleware([
@@ -75,15 +75,15 @@ Route::get('/search', [AdminController::class,'searchdata']);
 
 Route::get('/shop', [ProductController::class,'product'])->name('shop');
 
-Route::get('/product/details/{id}', [ProductController::class,'product_details'])->name('product_details');
+Route::get('/product/details/{id}', [ProductController::class,'product_details'])->name('product-details');
 
-Route::get('/product/search', [ProductController::class,'search_product'])->name('product_search');
+Route::get('/product/search', [ProductController::class,'search_product'])->name('product-search');
 
 
 /* Cart */
 Route::post('/add_cart/{id}', [CartController::class,'add_cart']);
 
-Route::get('/show_cart', [CartController::class,'show_cart']);
+Route::get('/cart', [CartController::class,'show_cart'])->name('show-cart');
 
 Route::get('/remove_cart/{id}', [CartController::class,'remove_cart']);
 
@@ -91,7 +91,7 @@ Route::get('/remove_cart/{id}', [CartController::class,'remove_cart']);
 
 Route::get('/cash_order', [OrderController::class,'cash_order']);
 
-Route::get('/show_order', [OrderController::class,'show_order']);
+Route::get('/orders', [OrderController::class,'show_order'])->name('show-orders');
 
 Route::get('/Cancel_Order/{id}', [OrderController::class,'Cancel_Order']);
 

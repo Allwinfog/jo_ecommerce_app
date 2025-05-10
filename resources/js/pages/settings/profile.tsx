@@ -1,14 +1,14 @@
-import { type BreadcrumbItem, type SharedData } from '@/types';
-import { Transition } from '@headlessui/react';
-import { Head, Link, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import {type BreadcrumbItem, type SharedData} from '@/types';
+import {Transition} from '@headlessui/react';
+import {Head, Link, useForm, usePage} from '@inertiajs/react';
+import {FormEventHandler} from 'react';
 
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
 import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Label} from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 
@@ -24,10 +24,10 @@ type ProfileForm = {
     email: string;
 }
 
-export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
-    const { auth } = usePage<SharedData>().props;
+export default function Profile({mustVerifyEmail, status}: { mustVerifyEmail: boolean; status?: string }) {
+    const {auth} = usePage<SharedData>().props;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
+    const {data, setData, patch, errors, processing, recentlySuccessful} = useForm<Required<ProfileForm>>({
         name: auth.user.name,
         email: auth.user.email,
     });
@@ -42,11 +42,11 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Profile settings" />
+            <Head title="Profile settings"/>
 
             <SettingsLayout>
                 <div className="space-y-6">
-                    <HeadingSmall title="Profile information" description="Update your name and email address" />
+                    <HeadingSmall title="Profile information" description="Update your name and email address"/>
 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
@@ -62,7 +62,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 placeholder="Full name"
                             />
 
-                            <InputError className="mt-2" message={errors.name} />
+                            <InputError className="mt-2" message={errors.name}/>
                         </div>
 
                         <div className="grid gap-2">
@@ -79,7 +79,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 placeholder="Email address"
                             />
 
-                            <InputError className="mt-2" message={errors.email} />
+                            <InputError className="mt-2" message={errors.email}/>
                         </div>
 
                         {mustVerifyEmail && auth.user.email_verified_at === null && (
@@ -120,7 +120,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                     </form>
                 </div>
 
-                <DeleteUser />
+                <DeleteUser/>
             </SettingsLayout>
         </AppLayout>
     );
