@@ -1,15 +1,15 @@
 import InputError from '@/components/input-error';
 import AppLayout from '@/layouts/app-layout';
 import SettingsLayout from '@/layouts/settings/layout';
-import { type BreadcrumbItem } from '@/types';
-import { Transition } from '@headlessui/react';
-import { Head, useForm } from '@inertiajs/react';
-import { FormEventHandler, useRef } from 'react';
+import {type BreadcrumbItem} from '@/types';
+import {Transition} from '@headlessui/react';
+import {Head, useForm} from '@inertiajs/react';
+import {FormEventHandler, useRef} from 'react';
 
 import HeadingSmall from '@/components/heading-small';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Label} from '@/components/ui/label';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -22,7 +22,7 @@ export default function Password() {
     const passwordInput = useRef<HTMLInputElement>(null);
     const currentPasswordInput = useRef<HTMLInputElement>(null);
 
-    const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm({
+    const {data, setData, errors, put, reset, processing, recentlySuccessful} = useForm({
         current_password: '',
         password: '',
         password_confirmation: '',
@@ -50,11 +50,12 @@ export default function Password() {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Profile settings" />
+            <Head title="Profile settings"/>
 
             <SettingsLayout>
                 <div className="space-y-6">
-                    <HeadingSmall title="Update password" description="Ensure your account is using a long, random password to stay secure" />
+                    <HeadingSmall title="Update password"
+                                  description="Ensure your account is using a long, random password to stay secure"/>
 
                     <form onSubmit={updatePassword} className="space-y-6">
                         <div className="grid gap-2">
@@ -71,7 +72,7 @@ export default function Password() {
                                 placeholder="Current password"
                             />
 
-                            <InputError message={errors.current_password} />
+                            <InputError message={errors.current_password}/>
                         </div>
 
                         <div className="grid gap-2">
@@ -88,7 +89,7 @@ export default function Password() {
                                 placeholder="New password"
                             />
 
-                            <InputError message={errors.password} />
+                            <InputError message={errors.password}/>
                         </div>
 
                         <div className="grid gap-2">
@@ -104,7 +105,7 @@ export default function Password() {
                                 placeholder="Confirm password"
                             />
 
-                            <InputError message={errors.password_confirmation} />
+                            <InputError message={errors.password_confirmation}/>
                         </div>
 
                         <div className="flex items-center gap-4">

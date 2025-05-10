@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-
-use App\Models\products;
-
-use Illuminate\Http\Request;
-
-
 use App\Models\cart;
+use App\Models\products;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CartController extends Controller

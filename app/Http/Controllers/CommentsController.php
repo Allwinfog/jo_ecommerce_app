@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-
-
-use Illuminate\Http\Request;
-
-
 use App\Models\Comment;
-
 use App\Models\Reply;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CommentsController extends Controller

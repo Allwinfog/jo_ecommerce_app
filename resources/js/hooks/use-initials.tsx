@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 export function useInitials() {
     const getInitials = useCallback((fullName: string): string => {

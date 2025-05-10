@@ -25,9 +25,9 @@ class ProductController extends Controller
     public function product_details($id)
     {
 
-        $products = products::find($id);
+        $product = products::find($id);
 
-        return view('home.product_details', compact('products'));
+        return view('home.product_details', compact('product'));
     }
 
     public function search_product(Request $request)

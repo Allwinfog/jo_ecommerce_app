@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
-use App\Notifications\SendEmailNotification;
-use Illuminate\Http\Request;
-use App\Models\products;
 use App\Models\Order;
+use App\Models\products;
+use App\Notifications\SendEmailNotification;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
 
@@ -15,8 +15,8 @@ class AdminController extends Controller
 {
     public function view_category()
     {
-        $data = category::all();
-        return view('admin.category', compact('data'));
+        $categories = category::paginate(10);
+        return view('admin.category', compact('categories'));
     }
 
     public function add_category(Request $request)
@@ -77,8 +77,8 @@ class AdminController extends Controller
 
     public function show_product()
     {
-        $product = products::all();
-        return view('admin.show_product', compact('product'));
+        $products = products::paginate(10);
+        return view('admin.show_product', compact('products'));
     }
 
     public function delete_product($id)
@@ -136,8 +136,8 @@ class AdminController extends Controller
 
     public function order()
     {
-        $order = order::all();
-        return view('admin.order', compact('order'));
+        $orders = order::paginate(10);
+        return view('admin.order', compact('orders'));
     }
 
     public function delivered($id)
@@ -196,8 +196,8 @@ class AdminController extends Controller
 
     public function searchdata(Request $request)
     {
-        $order = Order::where('name', 'LIKE', "%.$request->search.%")->orWhere('product_title', 'LIKE', "%.$request->search.%")->get();
+        $orders = Order::where('name', 'LIKE', "%" . $request->search . "%")->orWhere('product_title', 'LIKE', "%" . $request->search . "%")->paginate(10);
 
-        return view('admin.order', compact('order'));
+        return view('admin.order', compact('orders'));
     }
 }

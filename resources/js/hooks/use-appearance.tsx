@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 export type Appearance = 'light' | 'dark' | 'system';
 
@@ -69,5 +69,5 @@ export function useAppearance() {
         return () => mediaQuery()?.removeEventListener('change', handleSystemThemeChange);
     }, [updateAppearance]);
 
-    return { appearance, updateAppearance } as const;
+    return {appearance, updateAppearance} as const;
 }
